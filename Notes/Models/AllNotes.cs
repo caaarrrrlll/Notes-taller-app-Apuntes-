@@ -4,7 +4,7 @@ namespace Notes.Models;
 
 internal class AllNotes
 {
-    public ObservableCollection<Note> Notes { get; set; } = new ObservableCollection<Note>();
+    public ObservableCollection<Note> Notes { get; set; } = new();
 
     public AllNotes() =>
         LoadNotes();
@@ -12,25 +12,16 @@ internal class AllNotes
     public void LoadNotes()
     {
         Notes.Clear();
+        var files = Directory.EnumerateFiles(FileSystem.AppDataDirectory, "*.notes.txt");
 
-        
-        string appDataPath = FileSystem.AppDataDirectory;
-
-      
-        IEnumerable<Note> notes = Directory
-
-            .EnumerateFiles(appDataPath, "*.notes.txt")
-
-            .Select(filename => new Note()
+        foreach (var filename in files)
+        {
+            var text = File.ReadAllText(filename);
+            Notes.Add(new Note
             {
                 Filename = filename,
-                Text = File.ReadAllText(filename),
-                Date = File.GetLastWriteTime(filename)
-            })
-
-            .OrderBy(note => note.Date);
-
-        foreach (Note note in notes)
-            Notes.Add(note);
+                Text = text
+            });
+        }
     }
 }

@@ -10,7 +10,7 @@
     </ContentPage.BindingContext>
     <VerticalStackLayout Spacing="10" Margin="10">
         <HorizontalStackLayout Spacing="10">
-            <Image Source="dotnet_bot.png"
+            <Image Source="balatro.jpg"
                    SemanticProperties.Description="The dot net bot waving hello!"
                    HeightRequest="64" />
             <Label FontSize="22" FontAttributes="Bold" Text="Notes" VerticalOptions="End" />

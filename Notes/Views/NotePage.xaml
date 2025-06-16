@@ -4,7 +4,8 @@
              xmlns:models="clr-namespace:Notes.Models"
              x:Class="Notes.Views.NotePage"
              Title="Notes - Carlos Moreta"
-             x:DataType="models:Note">
+             x:DataType="models:Note"
+             >
     <VerticalStackLayout Spacing="10" Margin="5">
         <Editor x:Name="TextEditor"
                 Placeholder="Enter your note"
