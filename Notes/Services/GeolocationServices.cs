@@ -1,4 +1,5 @@
 ﻿using System;
+using Microsoft.Maui.Devices.Sensors;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,6 +34,7 @@ namespace Notes.Repositories
             
             catch (Exception ex)
             {
+                throw;
                 // Unable to get location
             }
             finally
@@ -46,10 +48,35 @@ namespace Notes.Repositories
             };*/
         }
 
+
+        public async Task<(string City, string Country)> GetCityAndCountryAsync(Location location)
+        {
+            if (location == null)
+                throw new ArgumentNullException(nameof(location));
+
+            var placemarks = await Geocoding.Default.GetPlacemarksAsync(location);
+
+            var placemark = placemarks?.FirstOrDefault();
+            if (placemark != null)
+            {
+                string city = placemark.Locality;
+                string country = placemark.CountryName;
+                return (city, country);
+            }
+
+            return (null, null);
+        }
+
+
+
+
         public void CancelRequest()
         {
             if (_isCheckingLocation && _cancelTokenSource != null && _cancelTokenSource.IsCancellationRequested == false)
                 _cancelTokenSource.Cancel();
         }
+
+
+
     }
 }

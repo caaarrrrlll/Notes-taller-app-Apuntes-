@@ -16,6 +16,11 @@
             Title="About"
             ContentTemplate="{DataTemplate local:AboutPage}"
             Icon="{OnPlatform 'acercade.png', iOS='acercade.png', MacCatalyst='acercade.png'}" />
+
+        <ShellContent
+            Title="Weather View"
+            ContentTemplate="{DataTemplate local:WeatherView}"
+            Icon="{OnPlatform 'acercade.png', iOS='acercade.png', MacCatalyst='acercade.png'}" />   
     </TabBar>
 
 </Shell>

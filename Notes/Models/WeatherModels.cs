@@ -34,6 +34,6 @@ namespace Notes.Models
         public int interval { get; set; }
         public double temperature_2m { get; set; }
         public int relative_humidity_2m { get; set; }
-        public int rain { get; set; }
+        public double rain { get; set; }
     }
 }
