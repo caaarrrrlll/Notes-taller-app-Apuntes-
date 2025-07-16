@@ -1,105 +1,95 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:namespace="clr-namespace:Notes.ViewModels"
+             xmlns:vm="clr-namespace:Notes.ViewModels"
              x:Class="Notes.Views.WeatherView"
              Title="Weather">
 
     <ContentPage.BindingContext>
-        <namespace:WeatherViewModel/>
+        <vm:WeatherViewModel/>
     </ContentPage.BindingContext>
 
     <ScrollView>
         <VerticalStackLayout Padding="20" Spacing="25" BackgroundColor="#F8F8FF">
 
-            <!-- Coordinate Entry -->
-            <Label Text="Enter Coordinates" FontSize="18" FontAttributes="Bold" />
+            <!-- Entrada manual opcional -->
+            <Label Text="Coordenadas opcionales" FontSize="18" FontAttributes="Bold" />
 
-            <Entry
-                Placeholder="Latitude"
-                Text="{Binding LatitudeInput}"
-                Keyboard="Numeric"
-                BackgroundColor="White"
-                PlaceholderColor="Gray"
-                TextColor="Black"
-                />
+            <Entry Placeholder="Latitud"
+                   Text="{Binding LatitudeInput}"
+                   Keyboard="Numeric"
+                   BackgroundColor="White"
+                   PlaceholderColor="Gray"
+                   TextColor="Black" />
 
-            <Entry
-                Placeholder="Longitude"
-                Text="{Binding LongitudeInput}"
-                Keyboard="Numeric"
-                BackgroundColor="White"
-                PlaceholderColor="Gray"
-                TextColor="Black"
-                />
+            <Entry Placeholder="Longitud"
+                   Text="{Binding LongitudeInput}"
+                   Keyboard="Numeric"
+                   BackgroundColor="White"
+                   PlaceholderColor="Gray"
+                   TextColor="Black" />
 
-            <Button
-                Text="Get Weather"
-                Command="{Binding RecalculateWeather}"
-                BackgroundColor="#6C63FF"
-                TextColor="White"
-                CornerRadius="10"
-                />
+            <Button Text="Obtener Clima"
+                    Command="{Binding RecalculateWeather}"
+                    BackgroundColor="#6C63FF"
+                    TextColor="White"
+                    CornerRadius="10" />
 
-            <!-- Location and Date (fixed or from API if available) -->
-            <Grid ColumnDefinitions="*,Auto" VerticalOptions="Start">
+            <!-- Ubicación fija o dinámica -->
+            <Grid ColumnDefinitions="*,Auto">
                 <VerticalStackLayout>
-                    <Label Text="Berry Park, UK" FontSize="22" FontAttributes="Bold" TextColor="Black"/>
-                    <Label Text="Sunday" FontSize="16" TextColor="Gray"/>
+                    <Label Text="Ubicación actual: Quito" FontSize="22" FontAttributes="Bold" TextColor="Black" />
+                    <Label Text="{Binding WeatherDatainfo.current.time, StringFormat='Hora: {0}'}"
+                           FontSize="16" TextColor="Gray" />
                 </VerticalStackLayout>
                 <Image Source="bell_icon.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center"/>
             </Grid>
 
-            <!-- Weather Card -->
-            <Frame CornerRadius="25" BackgroundColor="White" Padding="30" HasShadow="True">
+            <!-- Tarjeta de clima -->
+            <Frame CornerRadius="25" BackgroundColor="LightGoldenrodYellow" Padding="30" HasShadow="True">
                 <VerticalStackLayout HorizontalOptions="Center">
-                    <Image Source="cloudy_icon.png" WidthRequest="100" HeightRequest="100"/>
-                    <Label Text="{Binding WeatherDatainfo.current.temperature_2m}" FontSize="50" FontAttributes="Bold" TextColor="#6C63FF"/>
-                    <Label Text="Cloudy" FontSize="20" TextColor="Gray"/>
 
-                    <Grid ColumnDefinitions="*,*" Margin="0,20,0,0">
-                        <StackLayout Orientation="Horizontal" Spacing="5">
-                            <Image Source="wind_icon.png" WidthRequest="20" HeightRequest="20"/>
-                            <Label Text="10 km/h" FontSize="14" TextColor="Gray"/>
-                        </StackLayout>
-                        <StackLayout Orientation="Horizontal" Spacing="5" HorizontalOptions="End">
-                            <Image Source="humidity_icon.png" WidthRequest="20" HeightRequest="20"/>
-                            <Label Text="{Binding WeatherDatainfo.current.relative_humidity_2m, StringFormat='{}{0}%'}" FontSize="14" TextColor="Gray"/>
-                        </StackLayout>
-                    </Grid>
+                    <Image Source="weather.png" WidthRequest="100" HeightRequest="100" />
+
+                    <!-- Temperatura -->
+                    <Label Text="{Binding WeatherDatainfo.current.temperature_2m, StringFormat='{0} °C'}"
+                           FontSize="50"
+                           FontAttributes="Bold"
+                           TextColor="Grey" />
+
+                    <!-- Estado dinámico -->
+                    <Label Text="{Binding EstadoDelClima}"
+                           FontSize="20"
+                           TextColor="Gray" />
+
+                    <!-- Lluvia -->
+
+                    <StackLayout Orientation="Horizontal" Spacing="0">
+                        <Image Source="rainlogo.png" WidthRequest="20" HeightRequest="20" />
+                        <Label Text="{Binding WeatherDatainfo.current.rain, StringFormat='Lluvia: {0} mm'}"
+                            FontSize="14" TextColor="Gray" 
+                            Margin="0,10,0,0" />
+                    </StackLayout>
+
+
+                    <!-- Humedad y viento -->
+                    <StackLayout Orientation="Horizontal" Spacing="0">
+                        <Image Source="wind.png" WidthRequest="20" HeightRequest="20" />
+                        <Label Text="Viento: 10 km/h" FontSize="14" TextColor="Gray" 
+                         Margin="0,10,0,0" />
+                    </StackLayout>
+
+                    <StackLayout Orientation="Horizontal" Spacing="0">
+                        <Image Source="humidity.png" WidthRequest="40" HeightRequest="20" />
+                        <Label Text="{Binding WeatherDatainfo.current.relative_humidity_2m, StringFormat='Hum: {0}%'}"
+                            FontSize="14"
+                            TextColor="Gray" 
+                            Margin="0,10,0,0" />
+                    </StackLayout>
+
                 </VerticalStackLayout>
             </Frame>
 
-            <!-- Forecast Panel (static for now) -->
-            <Label Text="Today's Weather" FontSize="18" FontAttributes="Bold" TextColor="Black"/>
-
-            <Frame CornerRadius="20" BackgroundColor="#6C63FF" Padding="15">
-                <VerticalStackLayout Spacing="10">
-                    <Grid ColumnDefinitions="Auto,*,Auto">
-                        <Label Text="02:00 PM" TextColor="White" />
-                        <Image Source="storm_icon.png" WidthRequest="24"/>
-                        <Label Text="30°" TextColor="White"/>
-                    </Grid>
-
-                    <Grid ColumnDefinitions="Auto,*,Auto">
-                        <Label Text="03:00 PM" TextColor="White" />
-                        <Image Source="partly_cloudy_icon.png" WidthRequest="24"/>
-                        <Label Text="21°" TextColor="White"/>
-                    </Grid>
-
-                    <Grid ColumnDefinitions="Auto,*,Auto">
-                        <Label Text="05:00 PM" TextColor="White" />
-                        <Image Source="sunny_icon.png" WidthRequest="24"/>
-                        <Label Text="32°" TextColor="White"/>
-                    </Grid>
-
-                    <Grid ColumnDefinitions="Auto,*,Auto">
-                        <Label Text="06:00 PM" TextColor="White" />
-                        <Image Source="moon_icon.png" WidthRequest="24"/>
-                        <Label Text="15°" TextColor="White"/>
-                    </Grid>
-                </VerticalStackLayout>
-            </Frame>
 
         </VerticalStackLayout>
     </ScrollView>
