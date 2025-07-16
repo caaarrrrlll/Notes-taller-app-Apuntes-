@@ -9,125 +9,90 @@
         <models:About />
     </ContentPage.BindingContext>
 
-    <ScrollView>
-        <VerticalStackLayout Spacing="20" Padding="20">
+    <Grid>
 
-            <!--    Sergio About -->
+        <!--El codigo realizado para agragar el fondo fue con inteliganzia artifi-->
 
-            <Frame CornerRadius="15"
-                BorderColor="Gray"
-                Padding="15"
-                HasShadow="True"
-                HorizontalOptions="Center"
-                WidthRequest="300">
+        <!-- Imagen de fondo -->
+        <Image Source="background.jpg"
+               Aspect="AspectFill"
+               Opacity="0.25"
+               IsEnabled="False" />
 
+        <!-- Contenido sobre el fondo -->
+        <ScrollView>
+            <VerticalStackLayout Spacing="20" Padding="20">
 
-                <VerticalStackLayout Spacing="10"
-                  HorizontalOptions="Center"
-                  WidthRequest="280">   
+                <!-- Primer integrante -->
+                <Frame CornerRadius="15" BorderColor="Gray" Padding="15" HasShadow="True" HorizontalOptions="Center" WidthRequest="300">
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center" WidthRequest="280">
+                        <Image Source="sergphoto.jpeg" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" />
+                        <Label FontSize="22" Text="Nombre: Sergio Masin" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                        <Label FontSize="22" Text="Edad: 21" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                        <Label Text="Hola soy Sergio un aficionado de los videojuegos sobre todo los que provienen asia, mi franquicia favorita es 'Persona' y mi deporte favorito es el basquet.
+                            " HorizontalTextAlignment="Center" HorizontalOptions="Center" LineBreakMode="WordWrap" />
+                        <Frame Padding="10" CornerRadius="10" BackgroundColor="BlanchedAlmond" HasShadow="True">
+                            <HorizontalStackLayout Spacing="10">
+                                <Image Source="joystick.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
+                                <Label Text="Mi Videojuego Favorito" TextColor="Black" FontSize="18" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Videojuegofavoritapserg_Clicked" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Frame>
 
+                <!-- Segundo integrante -->
+                <Frame CornerRadius="15" BorderColor="Gray" Padding="15" HasShadow="True" HorizontalOptions="Center" WidthRequest="300">
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center" WidthRequest="280">
+                        <Image Source="carlphoto.jpeg" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" />
+                        <Label FontSize="22" Text="Nombre: Carlos Moreta" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                        <Label FontSize="22" Text="Edad: 22" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                        <Label Text="Me llamo Carlos  me encanta ver series, peliculas y sobre todo jugar videojuegos, ademas mi deporte favorito es el basquet pues lo jugamos casi todos los dias en la U.
+                            " HorizontalTextAlignment="Center" HorizontalOptions="Center" LineBreakMode="WordWrap" />
+                        <Frame Padding="10" CornerRadius="10" BackgroundColor="BlanchedAlmond" HasShadow="True">
+                            <HorizontalStackLayout Spacing="10">
+                                <Image Source="joystick.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
+                                <Label Text="Mi Videojuego Favorito" TextColor="Black" FontSize="18" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Videojuegofavorita_Clicked" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Frame>
 
-                    <Image Source="sergphoto.jpeg"
-                        HeightRequest="100"
-                        WidthRequest="100"
-                        HorizontalOptions="Center" />
+                <!-- Tercer integrante -->
+                <Frame CornerRadius="15" BorderColor="Gray" Padding="15" HasShadow="True" HorizontalOptions="Center" WidthRequest="300">
+                    <VerticalStackLayout Spacing="10" HorizontalOptions="Center" WidthRequest="280">
+                        <Image Source="pattphoto.jpeg" HeightRequest="100" WidthRequest="100" HorizontalOptions="Center" />
+                        <Label FontSize="22" Text="Nombre: Patricio Saa" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                        <Label FontSize="22" Text="Edad: 22" HorizontalTextAlignment="Center" HorizontalOptions="Center" />
+                        <Label Text="Mi nombre es Patrick y me gusta el encebolllado, en mi tiempo libre suelo leer o ver videos y mi deporte favorito es el futbol.
+                               " HorizontalTextAlignment="Center" HorizontalOptions="Center" LineBreakMode="WordWrap" />
+                        <Frame Padding="10" CornerRadius="10" BackgroundColor="BlanchedAlmond" HasShadow="True">
+                            <HorizontalStackLayout Spacing="10">
+                                <Image Source="joystick.png" WidthRequest="24" HeightRequest="24" VerticalOptions="Center" />
+                                <Label Text="Mi Videojuego Favorito" TextColor="Black" FontSize="18" VerticalOptions="Center" />
+                            </HorizontalStackLayout>
+                            <Frame.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Videojuegofavoritapatt_Clicked" />
+                            </Frame.GestureRecognizers>
+                        </Frame>
+                    </VerticalStackLayout>
+                </Frame>
 
-                    <Label FontSize="22"
-                        Text="Nombre: Sergio Masin"
-                        HorizontalTextAlignment="Center"
-                        HorizontalOptions="Center" />
-
-                    <Label FontSize="22"
-                        Text="Edad: 21"
-                        HorizontalTextAlignment="Center"
-                        HorizontalOptions="Center" />
-
-                    <Label Text="Hola soy Sergio un aficionado de los videojuegos sobre todo los que provienen asia, mi franquicia favorita es  Persona y mi deporte favorito es el basquet."
-                        HorizontalTextAlignment="Center"
-                        HorizontalOptions="Center"
-                        LineBreakMode="WordWrap" />
-
+                <!-- Botón final -->
+                <VerticalStackLayout Padding="20">
+                    <Button Text="Acerca de nuestra universidad"
+                            BackgroundColor="DarkRed"
+                            TextColor="White"
+                            Clicked="U_Clicked" />
                 </VerticalStackLayout>
-            </Frame>
 
-            <!-- Carlos About -->
+            </VerticalStackLayout>
+        </ScrollView>
 
-            <Frame CornerRadius="15"
-               BorderColor="Gray"
-               Padding="15"
-               HasShadow="True"
-               HorizontalOptions="Center"
-               WidthRequest="300">  
-
-
-                <VerticalStackLayout Spacing="10"
-                 HorizontalOptions="Center"
-                 WidthRequest="280">
-
-
-                    <Image Source="carlphoto.jpeg"
-                       HeightRequest="100"
-                       WidthRequest="100"
-                       HorizontalOptions="Center" />
-
-                    <Label FontSize="22"
-                       Text="Nombre: Carlos Moreta"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center" />
-
-                    <Label FontSize="22"
-                       Text="Edad: 22"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center" />
-
-                    <Label Text="Mi llamo Carlos  me encanta ver series, pelicualas y sobre todo jugar videojuegos, ademas mi deporte favorito es el basquet pues lo jugamos casi todos los dias en la U."
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center"
-                       LineBreakMode="WordWrap" />
-
-                </VerticalStackLayout>
-            </Frame>
-
-            <!-- Patrick About -->
-
-            <Frame CornerRadius="15"
-               BorderColor="Gray"
-               Padding="15"
-               HasShadow="True"
-               HorizontalOptions="Center"
-               WidthRequest="300">      
-               
-
-                <VerticalStackLayout Spacing="10"
-                         HorizontalOptions="Center"
-                         WidthRequest="280">
-                    
-
-                    <Image Source="pattphoto.jpeg"
-                       HeightRequest="100"
-                       WidthRequest="100"
-                       HorizontalOptions="Center" />
-
-                    <Label FontSize="22"
-                       Text="Nombre: Patrick Saa"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center" />
-
-                    <Label FontSize="22"
-                       Text="Edad: 22"
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center" />
-
-                    <Label Text="Mi nombre es Patrick y me gusta el encebolllado, en mi tiempo libre suelo leer o ver videos y mi deporte favorito es el futbol."
-                       HorizontalTextAlignment="Center"
-                       HorizontalOptions="Center"
-                       LineBreakMode="WordWrap" />
-
-                </VerticalStackLayout>
-            </Frame>
-
-
-        </VerticalStackLayout>
-    </ScrollView>
-
+    </Grid>
 </ContentPage>
