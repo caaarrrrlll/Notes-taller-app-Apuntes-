@@ -10,7 +10,7 @@
     </ContentPage.BindingContext>
 
     <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="25" BackgroundColor="#F8F8FF">
+        <VerticalStackLayout Padding="20" Spacing="25" BackgroundColor="LightSteelBlue">
 
             <!-- Entrada manual opcional -->
             <Label Text="Coordenadas opcionales" FontSize="18" FontAttributes="Bold" />
