@@ -21,6 +21,7 @@
                 Keyboard="Numeric"
                 BackgroundColor="White"
                 PlaceholderColor="Gray"
+                TextColor="Black"
                 />
 
             <Entry
@@ -29,6 +30,7 @@
                 Keyboard="Numeric"
                 BackgroundColor="White"
                 PlaceholderColor="Gray"
+                TextColor="Black"
                 />
 
             <Button

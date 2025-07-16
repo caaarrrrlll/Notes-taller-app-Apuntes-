@@ -8,16 +8,126 @@
     <ContentPage.BindingContext>
         <models:About />
     </ContentPage.BindingContext>
-    <VerticalStackLayout Spacing="10" Margin="10">
-        <HorizontalStackLayout Spacing="10">
-            <Image Source="balatro.jpg"
-                   SemanticProperties.Description="The dot net bot waving hello!"
-                   HeightRequest="64" />
-            <Label FontSize="22" FontAttributes="Bold" Text="Notes" VerticalOptions="End" />
-            <Label FontSize="22" Text="by Carlos Moreta" VerticalOptions="End" />
-        </HorizontalStackLayout>
 
-        <Label Text="Me gusta mucho dibujar y jugar Marvel Rivals" />
-        <Button Text="Learn more..." Clicked="LearnMore_Clicked" />
-    </VerticalStackLayout>
+    <ScrollView>
+        <VerticalStackLayout Spacing="20" Padding="20">
+
+            <!--    Sergio About -->
+
+            <Frame CornerRadius="15"
+                BorderColor="Gray"
+                Padding="15"
+                HasShadow="True"
+                HorizontalOptions="Center"
+                WidthRequest="300">
+
+
+                <VerticalStackLayout Spacing="10"
+                  HorizontalOptions="Center"
+                  WidthRequest="280">   
+
+
+                    <Image Source="sergphoto.jpeg"
+                        HeightRequest="100"
+                        WidthRequest="100"
+                        HorizontalOptions="Center" />
+
+                    <Label FontSize="22"
+                        Text="Nombre: Sergio Masin"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="Center" />
+
+                    <Label FontSize="22"
+                        Text="Edad: 21"
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="Center" />
+
+                    <Label Text="Hola soy Sergio un aficionado de los videojuegos sobre todo los que provienen asia, mi franquicia favorita es  Persona y mi deporte favorito es el basquet."
+                        HorizontalTextAlignment="Center"
+                        HorizontalOptions="Center"
+                        LineBreakMode="WordWrap" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Carlos About -->
+
+            <Frame CornerRadius="15"
+               BorderColor="Gray"
+               Padding="15"
+               HasShadow="True"
+               HorizontalOptions="Center"
+               WidthRequest="300">  
+
+
+                <VerticalStackLayout Spacing="10"
+                 HorizontalOptions="Center"
+                 WidthRequest="280">
+
+
+                    <Image Source="carlphoto.jpeg"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       HorizontalOptions="Center" />
+
+                    <Label FontSize="22"
+                       Text="Nombre: Carlos Moreta"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+
+                    <Label FontSize="22"
+                       Text="Edad: 22"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+
+                    <Label Text="Mi llamo Carlos  me encanta ver series, pelicualas y sobre todo jugar videojuegos, ademas mi deporte favorito es el basquet pues lo jugamos casi todos los dias en la U."
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       LineBreakMode="WordWrap" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+            <!-- Patrick About -->
+
+            <Frame CornerRadius="15"
+               BorderColor="Gray"
+               Padding="15"
+               HasShadow="True"
+               HorizontalOptions="Center"
+               WidthRequest="300">      
+               
+
+                <VerticalStackLayout Spacing="10"
+                         HorizontalOptions="Center"
+                         WidthRequest="280">
+                    
+
+                    <Image Source="pattphoto.jpeg"
+                       HeightRequest="100"
+                       WidthRequest="100"
+                       HorizontalOptions="Center" />
+
+                    <Label FontSize="22"
+                       Text="Nombre: Patrick Saa"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+
+                    <Label FontSize="22"
+                       Text="Edad: 22"
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center" />
+
+                    <Label Text="Mi nombre es Patrick y me gusta el encebolllado, en mi tiempo libre suelo leer o ver videos y mi deporte favorito es el futbol."
+                       HorizontalTextAlignment="Center"
+                       HorizontalOptions="Center"
+                       LineBreakMode="WordWrap" />
+
+                </VerticalStackLayout>
+            </Frame>
+
+
+        </VerticalStackLayout>
+    </ScrollView>
+
 </ContentPage>

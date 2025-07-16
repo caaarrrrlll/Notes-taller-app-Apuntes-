@@ -20,7 +20,7 @@
         <ShellContent
             Title="Weather View"
             ContentTemplate="{DataTemplate local:WeatherView}"
-            Icon="{OnPlatform 'acercade.png', iOS='acercade.png', MacCatalyst='acercade.png'}" />   
+            Icon="{OnPlatform 'whitecloud.png', iOS='whitecloud.png', MacCatalyst='whitecloud.png'}" />   
     </TabBar>
 
 </Shell>
